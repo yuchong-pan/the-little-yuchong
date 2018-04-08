@@ -1,0 +1,23 @@
+version: '3'
+services:
+    node:
+        restart: always
+        build: ./node
+        command: node index.js
+        expose:
+            - "8080"
+    django:
+        restart: always
+        build: ./django
+        command: python manage.py runserver 0.0.0.0:8000
+        expose:
+            - "8000"
+    nginx:
+        restart: always
+        build: ./nginx
+        ports:
+            - "80:80"
+            - "443:443"
+        links:
+            - node
+            - django

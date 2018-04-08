@@ -1,0 +1,9 @@
+.main {
+    margin: 50px;
+    font-family: monospace;
+}
+
+hr {
+    border-width: 2px;
+    border-color: black;
+}

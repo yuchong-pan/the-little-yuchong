@@ -9,6 +9,14 @@ hr {
     border-color: black;
 }
 
+.text {
+    min-height: 19px;
+}
+
+.separator {
+    height: 12px;
+}
+
 .hide {
     display: none;
 }

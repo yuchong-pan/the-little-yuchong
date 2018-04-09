@@ -25,25 +25,27 @@ let vm = new Vue({
             let that = this;
             if (i < that.all.length) {
                 that.questions.push({ question: '', answer: '' });
-                let typeAnswer = function() {
-                    that.type(that.all[i].answer, 0, i, 'answer', function() {
-                        that.loadQuestions(i + 1);
-                    }, that.bigPause);
-                };
-                that.type(that.all[i].question, 0, i, 'question', typeAnswer, that.pause);
+                setTimeout(function() {
+                    let typeAnswer = function() {
+                        that.type(that.all[i].answer, 0, i, 'answer', function() {
+                            that.loadQuestions(i + 1);
+                        });
+                    };
+                    that.type(that.all[i].question, 0, i, 'question', function() {
+                        setTimeout(typeAnswer, that.pause);
+                    });
+                }, that.bigPause);
             }
         },
-        type: function(text, i, kth, which, next, pause) {
+        type: function(text, i, kth, which, next) {
             let that = this;
             if (i < text.length) {
                 that.questions[kth][which] += text.charAt(i);
                 setTimeout(function() {
-                    that.type(text, i + 1, kth, which, next, pause);
+                    that.type(text, i + 1, kth, which, next);
                 }, that.speed);
             } else {
-                setTimeout(function() {
-                    next();
-                }, pause);
+                next();
             }
         }
     }

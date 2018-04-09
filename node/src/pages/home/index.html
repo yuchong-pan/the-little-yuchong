@@ -26,10 +26,12 @@
             <div v-for="(question, index) in questions">
                 <hr v-if="index == 0">
                 <div class="row">
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 col-sm-6 text">
                         {{ question.question }}
                     </div>
-                    <div class="col-12 col-sm-6">
+                    <div class="col-12 d-sm-none separator">
+                    </div>
+                    <div class="col-12 col-sm-6 text">
                         {{ question.answer }}
                     </div>
                 </div>

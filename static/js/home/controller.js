@@ -17,6 +17,7 @@ let vm = new Vue({
         questions: []
     },
     mounted: function() {
+        $(".hide").removeClass("hide");
         this.loadQuestions(0);
     },
     methods: {

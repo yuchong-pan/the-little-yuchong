@@ -1,9 +1,14 @@
 #main {
-    margin: 50px;
+    margin: 50px auto;
+    max-width: 80%;
     font-family: monospace;
 }
 
 hr {
     border-width: 2px;
     border-color: black;
+}
+
+.hide {
+    display: none;
 }
